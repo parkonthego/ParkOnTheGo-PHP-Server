@@ -9,6 +9,11 @@
     "homepage": "http://framework.zend.com/",
     "require": {
         "php": ">=5.5",
-        "zendframework/zendframework": "~2.5"
+        "zendframework/zendframework": "~2.5",
+        "zendframework/zend-developer-tools": "dev-master",
+        "zendframework/zftool": "dev-master",
+        "outeredge/swagger-module": "dev-master",
+        "kbrabrand/zf2-swagger-ui" : "dev-master",
+        "zf-commons/zfc-user": "dev-master"
     }
 }

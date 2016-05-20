@@ -1,0 +1,24 @@
+<?php
+
+return array(
+    'swagger' => array(
+        /**
+         * List a path or paths containing Swagger Annotated classes
+         */
+        'paths' => array(
+            __DIR__ . '/../../module/Api/src/Api/Controller',
+        ),
+
+        'resource_options' => array(
+            'output' => 'array',
+            'json_pretty_print' => true, // for outputtype 'json'
+            'defaultBasePath' => '/alert/public/api',
+            'defaultApiVersion' => null,
+            'defaultSwaggerVersion' => '1.2',
+        ),
+    )
+    
+    'swagger-ui' => array(
+        'swagger-json-url' => 'http://localhost/alert/public/api/docs'
+     ),
+);

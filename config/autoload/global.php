@@ -11,6 +11,21 @@
  * file.
  */
 
+date_default_timezone_set("UTC");
+
 return array(
-    // ...
+    'service_manager' => array(
+        'invokables' => array(
+            'Zend\Session\SessionManager' => 'Zend\Session\SessionManager',
+        ),
+        'factories' => array(
+            'Zend\Db\Adapter\Adapter' => 'Zend\Db\Adapter\AdapterServiceFactory',
+        ),
+    ),
+     
+    'session_config' => array(
+        // Set the session and cookie expiries to 15 minutes
+        'cache_expire' => 20,
+        'cookie_lifetime' => 20,
+    ),
 );
