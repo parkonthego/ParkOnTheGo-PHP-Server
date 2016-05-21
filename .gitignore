@@ -9,11 +9,6 @@ config/autoload/*.local.php
 *.mo
 
 # Data
-data/logs/
-data/cache/
-data/sessions/
-data/tmp/
-temp/
 
 # Legacy ZF1
 demos/
