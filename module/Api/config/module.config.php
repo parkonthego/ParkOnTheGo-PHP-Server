@@ -18,6 +18,7 @@ return array(
         ),
         'factories' => array(
                'Api\Controller\Registration' => 'Api\ControllerFactory\RegistrationControllerFact',
+               'Api\Controller\Authentication' => 'Api\ControllerFactory\AuthenticationControllerFact',
         )
        
        
@@ -46,6 +47,7 @@ return array(
                             ),
                             'defaults' => array(
                                 'controller' => 'Api\Controller\Authentication',
+                                
                             ),
                         ),
                     ),

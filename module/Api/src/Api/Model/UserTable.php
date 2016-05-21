@@ -2,11 +2,9 @@
 
 namespace Api\Model;
 
-class UserTable extends BaseModelTable
-    {
+class UserTable extends BaseModelTable {
 
-    public function insert(User $user)
-    {
+    public function insert(User $user) {
         try {
             $this->created($user);
             // Need to write to vaidations
@@ -22,8 +20,7 @@ class UserTable extends BaseModelTable
         }
     }
 
-    public function update(User $user)
-    {
+    public function update(User $user) {
         try {
             $this->updated($user);
 
@@ -43,10 +40,22 @@ class UserTable extends BaseModelTable
         }
     }
 
-    public function fetchAll()
-    {
+    public function fetchAll() {
         $resultSet = $this->tableGateway->select();
         return $resultSet;
     }
 
+    public function fetchUser($email,$passowrd)
+    {
+        $select = new \Zend\Db\Sql\Select ;
+        $select->from(array('u' => 'user'))
+                ->columns(array('id','display_name'))
+                ->where(array('u.email' => $email,'u.password'=>$passowrd));
+         
+        $statement = $this->getSql()->prepareStatementForSqlObject($select); 
+        $resultSet = $statement->execute(); 
+        
+        return $resultSet->current();
     }
+
+}
