@@ -110,3 +110,41 @@
 #12 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
 #13 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
 #14 {main}
+2016-05-23T22:33:18+00:00 ERR (3): exception 'PDOException' with message 'SQLSTATE[21000]: Cardinality violation: 1241 Operand should contain 1 column(s)' in /var/www/html/work/phpserver/vendor/zendframework/zend-db/src/Adapter/Driver/Pdo/Statement.php:239
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-db/src/Adapter/Driver/Pdo/Statement.php(239): PDOStatement->execute()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Model/ParkingSlotTable.php(80): Zend\Db\Adapter\Driver\Pdo\Statement->execute()
+#2 /var/www/html/work/phpserver/module/Api/src/Api/Controller/SearchController.php(42): Api\Model\ParkingSlotTable->getLocationsTo('37.3471218', '-121.931602,20', '5')
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\SearchController->getLocationsNearMeAction()
+#4 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#8 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#11 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#13 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#14 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#15 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#16 {main}
+
+Next exception 'Zend\Db\Adapter\Exception\InvalidQueryException' with message 'Statement could not be executed (21000 - 1241 - Operand should contain 1 column(s))' in /var/www/html/work/phpserver/vendor/zendframework/zend-db/src/Adapter/Driver/Pdo/Statement.php:244
+Stack trace:
+#0 /var/www/html/work/phpserver/module/Api/src/Api/Model/ParkingSlotTable.php(80): Zend\Db\Adapter\Driver\Pdo\Statement->execute()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/SearchController.php(42): Api\Model\ParkingSlotTable->getLocationsTo('37.3471218', '-121.931602,20', '5')
+#2 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\SearchController->getLocationsNearMeAction()
+#3 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#4 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#8 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#10 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#13 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#14 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#15 {main}

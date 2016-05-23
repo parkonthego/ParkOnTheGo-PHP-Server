@@ -36,8 +36,10 @@ class SearchController extends BaseRestfulJsonController {
             $userId = $this->params()->fromQuery('userId');
             $lat = $this->params()->fromQuery('lat');
             $long = $this->params()->fromQuery('long');
+            $distance = $this->params()->fromQuery('dis');
             $parkingSlotTable = $this->serviceLocator->get('Api\Model\ParkingSlotTable');
-            $searchDetails = $parkingSlotTable->getLocationsTo(37.3471218,-121.931602,20);
+           // $searchDetails = $parkingSlotTable->getLocationsTo(37.3471218,-121.931602,20);
+            $searchDetails = $parkingSlotTable->getLocationsTo($lat,$long,$distance);
             if ($searchDetails == false) {
                 throw new Exception("SQL Error");
             };
