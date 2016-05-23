@@ -32,22 +32,54 @@ return array(
             $resultSetPrototype->setArrayObjectPrototype(new \Api\Model\User());
             return new TableGateway('user', $dbAdapter, null, $resultSetPrototype);
         },
-//        'Api\Model\UserDetailTable' => function ($sm) {
-//            $tableGateway = $sm->get('UserDetailTableGateway');
-//            $config = $sm->get("config");
-//            $logger = $sm->get('Api\Logger');
-//            $table = new \Api\Model\UserDetailTable($tableGateway, array(
-//                "config" => $config,
-//                "logger" => $logger
-//            ));
-//            return $table;
-//        },
-//        'UserDetailGateway' => function ($sm) {
-//            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
-//            $resultSetPrototype = new ResultSet();
-//            $resultSetPrototype->setArrayObjectPrototype(new \Api\Model\UserDetail());
-//            return new TableGateway('user_detail', $dbAdapter, null, $resultSetPrototype);
-//        },
+        'Api\Model\ReservationTable' => function ($sm) {
+            $tableGateway = $sm->get('ReservationTableGateway');
+            $config = $sm->get("config");
+            $logger = $sm->get('Api\Logger');
+            $table = new \Api\Model\ReservationTable($tableGateway, array(
+                "config" => $config,
+                "logger" => $logger
+            ));
+            return $table;
+        },
+        'ReservationTableGateway' => function ($sm) {
+            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+            $resultSetPrototype = new ResultSet();
+            $resultSetPrototype->setArrayObjectPrototype(new \Api\Model\Reservation());
+            return new TableGateway('reservation', $dbAdapter, null, $resultSetPrototype);
+        },
+        'Api\Model\ParkingSlotTable' => function ($sm) {
+            $tableGateway = $sm->get('ParkingSlotTableGateway');
+            $config = $sm->get("config");
+            $logger = $sm->get('Api\Logger');
+            $table = new \Api\Model\ParkingSlotTable($tableGateway, array(
+                "config" => $config,
+                "logger" => $logger
+            ));
+            return $table;
+        },
+        'ParkingSlotTableGateway' => function ($sm) {
+            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+            $resultSetPrototype = new ResultSet();
+            $resultSetPrototype->setArrayObjectPrototype(new \Api\Model\ParkingSlot());
+            return new TableGateway('parking_slot', $dbAdapter, null, $resultSetPrototype);
+        },
+        'Api\Model\PaymentHistoryTable' => function ($sm) {
+            $tableGateway = $sm->get('PaymentHistoryTableGateway');
+            $config = $sm->get("config");
+            $logger = $sm->get('Api\Logger');
+            $table = new \Api\Model\PaymentHistoryTable($tableGateway, array(
+                "config" => $config,
+                "logger" => $logger
+            ));
+            return $table;
+        },
+        'PaymentHistoryTableGateway' => function ($sm) {
+            $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+            $resultSetPrototype = new ResultSet();
+            $resultSetPrototype->setArrayObjectPrototype(new \Api\Model\PaymentHistory());
+            return new TableGateway('payment_history', $dbAdapter, null, $resultSetPrototype);
+        },
     ),
 );
 

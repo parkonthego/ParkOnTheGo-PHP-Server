@@ -38,6 +38,9 @@ class RegistrationController extends BaseRestfulJsonController {
             try {
                 $userTable = $this->serviceLocator->get('Api\Model\UserTable');
                 $id = $userTable->insert($user);
+                if($id == false){
+                    throw new Exception("SQL Error");
+                };
                 $data = array(
                     'display_name' => $displayName,
                     'id' => $id
@@ -46,7 +49,7 @@ class RegistrationController extends BaseRestfulJsonController {
                 return $this->success($data);
             } catch (\Exception $e) {
                 $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
-                return false;
+                return $this->error($e->getMessage());
             }
         }
 

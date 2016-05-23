@@ -14,18 +14,16 @@ return array(
     'controllers' => array(
         'invokables' => array(
             'Api\Controller\Index' => 'Api\Controller\IndexController',
-            
         ),
         'factories' => array(
-               'Api\Controller\Registration' => 'Api\ControllerFactory\RegistrationControllerFact',
-               'Api\Controller\Authentication' => 'Api\ControllerFactory\AuthenticationControllerFact',
+            'Api\Controller\Registration' => 'Api\ControllerFactory\RegistrationControllerFact',
+            'Api\Controller\Authentication' => 'Api\ControllerFactory\AuthenticationControllerFact',
+            'Api\Controller\Search' => 'Api\ControllerFactory\SearchControllerFact',
+            'Api\Controller\Reservation' => 'Api\ControllerFactory\ReservationControllerFact',
         )
-       
-       
     ),
     'router' => array(
         'routes' => array(
-           
             'api' => array(
                 'type' => 'segment',
                 'options' => array(
@@ -47,7 +45,6 @@ return array(
                             ),
                             'defaults' => array(
                                 'controller' => 'Api\Controller\Authentication',
-                                
                             ),
                         ),
                     ),
@@ -81,6 +78,31 @@ return array(
                             ),
                             'defaults' => array(
                                 'controller' => 'Api\Controller\Users',
+                            ),
+                        ),
+                    ),
+                    'search' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/search[/:action]',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Api\Controller\Search',
+                            ),
+                        ),
+                    ),
+                     'reservation' => array(
+                        'type' => 'segment',
+                        'options' => array(
+                            'route' => '/reservation',
+                            'constraints' => array(
+                                'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
+                                'userid' => '[0-9]+',
+                            ),
+                            'defaults' => array(
+                                'controller' => 'Api\Controller\Reservation',
                             ),
                         ),
                     ),

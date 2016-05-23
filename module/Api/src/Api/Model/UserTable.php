@@ -31,7 +31,7 @@ class UserTable extends BaseModelTable {
 
             $data = array_filter($user->getArrayCopy());
 
-            $this->tableGateway->update($data, array('user_id' => $user->id));
+            $this->tableGateway->update($data, array('id' => $user->id));
 
             return true;
         } catch (\Exception $e) {
