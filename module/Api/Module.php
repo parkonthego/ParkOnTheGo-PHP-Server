@@ -90,6 +90,7 @@ class Module
     public function getJsonModelError($e)
     {
         $error = $e->getError();
+       
         if (!$error) {
             return;
         }

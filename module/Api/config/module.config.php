@@ -96,7 +96,7 @@ return array(
                      'reservation' => array(
                         'type' => 'segment',
                         'options' => array(
-                            'route' => '/reservation',
+                            'route' => '/reservation[/:action]',
                             'constraints' => array(
                                 'action' => '[a-zA-Z][a-zA-Z0-9_-]*',
                                 'userid' => '[0-9]+',

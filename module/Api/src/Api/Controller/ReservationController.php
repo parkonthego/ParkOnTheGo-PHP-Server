@@ -20,9 +20,16 @@ class ReservationController extends BaseRestfulJsonController {
 
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
             $reservationDetails = $reservationTable->fetchRecord($id);
-            if ($reservationDetails == false) {
-                throw new Exception("SQL Error");
+
+            if ($reservationDetails == NULL) {
+                throw new \Api\Exception\ApiException("No data exist", 404);
             };
+
+            if ($reservationDetails == false) {
+                throw new \Api\Exception\ApiException("SQL Error", 500);
+            };
+
+
 
             return $this->success($reservationDetails);
         } catch (Exception $ex) {
@@ -31,19 +38,22 @@ class ReservationController extends BaseRestfulJsonController {
         }
     }
 
-    public function getUserReservations() {
+    public function getUserReservationsAction() {
 
         try {
             $requestId = $this->params()->fromQuery('userId');
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
             $reservationDetails = $reservationTable->fetchUserServations($requestId);
-           if ($reservationDetails == false) {
-                throw new Exception("SQL Error");
+            if ($reservationDetails == false) {
+                throw new \Api\Exception\ApiException("SQL Error", 500);
+            };
+            if ($reservationDetails == NULL) {
+                throw new \Api\Exception\ApiException("No data exist", 404);
             };
 
             return $this->success($reservationDetails);
         } catch (Exception $ex) {
-              $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
+            $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
             return $this->error($e->getMessage());
         }
     }
@@ -68,7 +78,10 @@ class ReservationController extends BaseRestfulJsonController {
                 $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
                 $id = $reservationTable->insert($newReservation);
                 if ($id == false) {
-                    throw new Exception("SQL Error");
+                    throw new \Api\Exception\ApiException("SQL Error", 500);
+                };
+                if ($reservationDetails == NULL) {
+                    throw new \Api\Exception\ApiException("No data exist", 404);
                 };
                 $data = array(
                     'id' => $id

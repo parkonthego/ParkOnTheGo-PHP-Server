@@ -2,7 +2,7 @@
 
 namespace Api\Model;
 
-class ParkingSlotTable extends BaseModelTable {
+class ReservationTable extends BaseModelTable {
 
     public function insert(Reservation $reservation) {
         try {
@@ -46,10 +46,14 @@ class ParkingSlotTable extends BaseModelTable {
     }
 
     public function fetchRecord($requestId) {
-        $rowset = $this->tableGateway->select(array('id' => $requestId));
-        $artistRow = $rowset->current();
-
-        return $artistRow;
+        try {
+            $rowset = $this->tableGateway->select(array('id' => $requestId));
+            $artistRow = $rowset->current();
+            return $artistRow;
+        } catch (\Exception $e) {
+            $this->logger->err($e->getMessage());
+            return false;
+        }
     }
 
     public function fetchUserServations($id) {
@@ -57,8 +61,7 @@ class ParkingSlotTable extends BaseModelTable {
 
         $select->from(array('r' => 'reservation'))
                 ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
-                ->where(array('uo.user_id' => $userId))
-                ->where(array('o.api_key' => $apiKey))
+                ->where(array('r.user_id' => $id))
                 ->columns(array('*'));
 
         $statement = $this->getSql()->prepareStatementForSqlObject($select);
