@@ -34,7 +34,3 @@ function convertSecsToDecimal($seconds)
     return $hours + $minutesInDecimal;
 }
 
-function convertStringToDateTime($string){
-    $timestamp = strtotime($string);
-     return date("Y-m-d H:i:s", $timestamp);
-}

@@ -21,22 +21,21 @@ class BaseRestfulJsonController extends AbstractRestfulController {
     public $tables = array();
     public $logger;
     public $serviceLocator;
-    
+
     function __construct(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator) {
-         $this->serviceLocator = $serviceLocator;
-     }
-    
+        $this->serviceLocator = $serviceLocator;
+    }
 
     public function onDispatch(\Zend\Mvc\MvcEvent $e) {
         $sm = $this->serviceLocator;
         $this->logger = $sm->get("Api/Logger");
-        
+
         return parent::onDispatch($e);
     }
 
     public function getTable($table) {
         if (!isset($this->tables[$table])) {
-            $sm =  $this->serviceLocator;
+            $sm = $this->serviceLocator;
             $this->tables[$table] = $sm->get('Api\Model\\' . $table . 'Table');
         }
         return $this->tables[$table];
@@ -78,6 +77,7 @@ class BaseRestfulJsonController extends AbstractRestfulController {
             "error_code" => 403
         ));
     }
+
     protected function getBaseUrl() {
 
         $basePath = $this->getRequest()->getBasePath();
@@ -88,63 +88,56 @@ class BaseRestfulJsonController extends AbstractRestfulController {
 
         return $uri->getScheme() . '://' . $uri->getHost() . '' . $uri->getPath();
     }
-    
+
     # Override default actions as they do not return valid JsonModels
 
-    public function create($data)
-    {
+    public function create($data) {
         return $this->methodNotAllowed();
     }
 
-    public function delete($id)
-    {
+    public function delete($id) {
         return $this->methodNotAllowed();
     }
 
-    public function deleteList($data)
-    {
+    public function deleteList($data) {
         return $this->methodNotAllowed();
     }
 
-    public function get($id)
-    {
+    public function get($id) {
         return $this->methodNotAllowed();
     }
 
-    public function getList()
-    {
+    public function getList() {
         return $this->methodNotAllowed();
     }
 
-    public function head($id = null)
-    {
+    public function head($id = null) {
         return $this->methodNotAllowed();
     }
 
-    public function options()
-    {
+    public function options() {
         return $this->methodNotAllowed();
     }
 
-    public function patch($id, $data)
-    {
+    public function patch($id, $data) {
         return $this->methodNotAllowed();
     }
 
-    public function replaceList($data)
-    {
+    public function replaceList($data) {
         return $this->methodNotAllowed();
     }
 
-    public function patchList($data)
-    {
+    public function patchList($data) {
         return $this->methodNotAllowed();
     }
 
-    public function update($id, $data)
-    {
+    public function update($id, $data) {
         return $this->methodNotAllowed();
     }
-    
+
+    function convertStringToDateTime($string) {
+        $timestamp = strtotime($string);
+        return date("Y-m-d H:i:s", $timestamp);
+    }
 
 }

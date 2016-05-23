@@ -6,11 +6,13 @@ class ReservationTable extends BaseModelTable {
 
     public function insert(Reservation $reservation) {
         try {
+           
             $this->created($reservation);
             // Need to write to vaidations
             if (!$this->isValid($reservation)) {
                 return false;
             }
+          
             $this->tableGateway->insert($reservation->getArrayCopy());
             $filedId = $this->tableGateway->getLastInsertValue();
             return $filedId;

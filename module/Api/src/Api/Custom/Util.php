@@ -8,13 +8,11 @@
 
 namespace Api\Custom;
 
-Class Util
-{
+Class Util {
 
     public static $baseUrl;
 
-    public function getInGMT($date, $tz)
-    {
+    public function getInGMT($date, $tz) {
         if ($tz == "") {
             $tz = "UTC";
         }
@@ -27,8 +25,7 @@ Class Util
         return $obj->format("Y-m-d H:i:s");
     }
 
-    public function getFromGMT($date, $tz)
-    {
+    public function getFromGMT($date, $tz) {
         if ($tz == "") {
             $tz = "UTC";
         }
@@ -41,8 +38,7 @@ Class Util
         return $obj->format("Y-m-d H:i:s");
     }
 
-    function age($birthDate)
-    {
+    function age($birthDate) {
         $date = new \DateTime($birthDate);
         $now = new \DateTime();
         $interval = $now->diff($date);
@@ -50,8 +46,7 @@ Class Util
         return $interval->y;
     }
 
-    function dateDiffInSecs($from, $to)
-    {
+    function dateDiffInSecs($from, $to) {
         $date = new \DateTime($from);
         $now = new \DateTime($to);
 
@@ -60,8 +55,7 @@ Class Util
         return $diffInSeconds;
     }
 
-    function convertSecsToDecimal($seconds)
-    {
+    function convertSecsToDecimal($seconds) {
         $hours = floor($seconds / (60 * 60));
 
         $divisor_for_minutes = $seconds % (60 * 60);
@@ -71,6 +65,11 @@ Class Util
 
 
         return $hours + $minutesInDecimal;
+    }
+
+    function convertStringToDateTime($string) {
+        $timestamp = strtotime($string);
+        return date("Y-m-d H:i:s", $timestamp);
     }
 
 }

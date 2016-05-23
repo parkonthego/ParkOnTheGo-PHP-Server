@@ -4,6 +4,7 @@ namespace Api\Controller;
 
 use Zend\View\Model\JsonModel;
 use Zend\Db\Sql\Expression;
+use Api\Utils\Functions;
 
 class ReservationController extends BaseRestfulJsonController {
 
@@ -66,13 +67,15 @@ class ReservationController extends BaseRestfulJsonController {
             $parkingId = $this->getRequest()->getPost('parkingid');
             $userId = $this->getRequest()->getPost('userid');
             $startingTime = $this->getRequest()->getPost('startingtime');
+            var_dump($startingTime);
             $endTime = $this->getRequest()->getPost('endtime');
 
             $newReservation = new \Api\Model\Reservation();
             $newReservation->parking_id = $parkingId;
             $newReservation->user_id = $userId;
-            $newReservation->starting_time = \Api\Utils\Functions\convertStringToDateTime($startingTime);
-            $newReservation->end_time = \Api\Utils\Functions\convertStringToDateTime($endTime);
+            $newReservation->starting_time = $this->convertStringToDateTime($startingTime);
+            $newReservation->end_time = $this->convertStringToDateTime($endTime);
+           
 
             try {
                 $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
@@ -80,7 +83,7 @@ class ReservationController extends BaseRestfulJsonController {
                 if ($id == false) {
                     throw new \Api\Exception\ApiException("SQL Error", 500);
                 };
-                if ($reservationDetails == NULL) {
+                if ($id == NULL) {
                     throw new \Api\Exception\ApiException("No data exist", 404);
                 };
                 $data = array(
