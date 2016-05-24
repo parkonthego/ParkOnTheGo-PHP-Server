@@ -42,7 +42,7 @@ class ReservationController extends BaseRestfulJsonController {
     public function getUserReservationsAction() {
 
         try {
-            $requestId = $this->params()->fromQuery('userId');
+            $requestId = $this->params()->fromQuery('userid');
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
             $reservationDetails = $reservationTable->fetchUserServations($requestId);
             if ($reservationDetails == false) {
@@ -67,14 +67,15 @@ class ReservationController extends BaseRestfulJsonController {
             $parkingId = $this->getRequest()->getPost('parkingid');
             $userId = $this->getRequest()->getPost('userid');
             $startingTime = $this->getRequest()->getPost('startingtime');
-            var_dump($startingTime);
             $endTime = $this->getRequest()->getPost('endtime');
+            $cost = $this->getRequest()->getPost('cost');
 
             $newReservation = new \Api\Model\Reservation();
             $newReservation->parking_id = $parkingId;
             $newReservation->user_id = $userId;
             $newReservation->starting_time = $this->convertStringToDateTime($startingTime);
             $newReservation->end_time = $this->convertStringToDateTime($endTime);
+            $newReservation->cost = $cost; 
            
 
             try {
