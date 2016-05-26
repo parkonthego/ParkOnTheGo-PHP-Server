@@ -1,4 +1,4 @@
-ParkOnTheGo APplication
+ParkOnTheGo Application
 =======================
 
 Introduction
