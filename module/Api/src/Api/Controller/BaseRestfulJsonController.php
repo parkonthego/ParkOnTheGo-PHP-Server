@@ -137,7 +137,7 @@ class BaseRestfulJsonController extends AbstractRestfulController {
 
     function convertStringToDateTime($string) {
         $timestamp = strtotime($string);
-        return date("Y-m-d H:i:s", $timestamp);
+        return date("m-d-Y H:i", $timestamp);
     }
 
 }
