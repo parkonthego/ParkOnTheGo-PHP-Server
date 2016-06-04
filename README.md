@@ -1,9 +1,9 @@
-ZendSkeletonApplication
+ParkOnTheGo Application
 =======================
 
 Introduction
 ------------
-This is a simple, skeleton application using the ZF2 MVC layer and module
+This is application using the ZF2 MVC layer and module
 systems. This application is meant to be used as a starting place for those
 looking to get their feet wet with ZF2.
 
@@ -11,12 +11,6 @@ Installation using Composer
 ---------------------------
 
 The easiest way to create a new ZF2 project is to use [Composer](https://getcomposer.org/). If you don't have it already installed, then please install as per the [documentation](https://getcomposer.org/doc/00-intro.md).
-
-
-Create your new ZF2 project:
-
-    composer create-project -n -sdev zendframework/skeleton-application path/to/install
-
 
 
 ### Installation using a tarball with a local Composer
@@ -115,4 +109,4 @@ it should look something like below:
         }
     }
 
-Restart the nginx, now you should be ready to go!
+Restart the nginx, Apache2, now you should be ready to go!
