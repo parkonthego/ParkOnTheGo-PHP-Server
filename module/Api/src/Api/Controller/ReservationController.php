@@ -82,7 +82,7 @@ class ReservationController extends BaseRestfulJsonController {
                 $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
                 $id = $reservationTable->insert($newReservation);
                 if ($id == false) {
-                    throw new \Api\Exception\ApiException("SQL Error", 500);
+                    throw new \Api\Exception\ApiException("Reservation is already exists", 500);
                 };
                 if ($id == NULL) {
                     throw new \Api\Exception\ApiException("No data exist", 404);

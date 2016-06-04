@@ -57,5 +57,18 @@ class UserTable extends BaseModelTable {
         
         return $resultSet->current();
     }
+    
+     public function fetchUserById($id)
+    {
+        $select = new \Zend\Db\Sql\Select ;
+        $select->from(array('u' => 'user'))
+                ->columns(array('id','first_name','last_name','email'))
+                ->where(array('u.id' => $id));
+         
+        $statement = $this->getSql()->prepareStatementForSqlObject($select); 
+        $resultSet = $statement->execute(); 
+        
+        return $resultSet->current();
+    }
 
 }
