@@ -139,5 +139,10 @@ class BaseRestfulJsonController extends AbstractRestfulController {
         $timestamp = strtotime($string);
         return date("m/d/Y H:i", $timestamp);
     }
+    
+      function convertStringToSqlDateTime($string) {
+        $timestamp = strtotime($string);
+        return date("Y/m/d H:i", $timestamp);
+    }
 
 }

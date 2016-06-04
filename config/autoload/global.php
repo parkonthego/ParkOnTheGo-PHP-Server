@@ -11,7 +11,7 @@
  * file.
  */
 
-date_default_timezone_set("UTC");
+date_default_timezone_set("America/Los_Angeles");
 
 return array(
     'service_manager' => array(

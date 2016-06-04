@@ -14,6 +14,7 @@ use Api\Custom\Util;
 use Zend\Db\Sql\Expression;
 use Zend\Db\Sql\Predicate\Predicate;
 
+
 class BaseModelTable
 {
 
