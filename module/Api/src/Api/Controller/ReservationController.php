@@ -45,6 +45,28 @@ class ReservationController extends BaseRestfulJsonController {
             $requestId = $this->params()->fromQuery('userid');
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
             $reservationDetails = $reservationTable->fetchUserServations($requestId);
+           
+            if ($reservationDetails == -1) {
+                throw new \Api\Exception\ApiException("No data exist", 404);
+            };
+            if ($reservationDetails == false) {
+                throw new \Api\Exception\ApiException("SQL Error", 500);
+            };
+
+            return $this->success($reservationDetails);
+        } catch (Exception $ex) {
+            $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
+            return $this->error($e->getMessage());
+        }
+    }
+    
+    
+     public function getUserPastReservationsAction() {
+
+        try {
+            $requestId = $this->params()->fromQuery('userid');
+            $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+            $reservationDetails = $reservationTable->fetchUserPastServations($requestId);
             if ($reservationDetails == false) {
                 throw new \Api\Exception\ApiException("SQL Error", 500);
             };
@@ -131,6 +153,8 @@ class ReservationController extends BaseRestfulJsonController {
             $newReservation->cost = $cost;
             $newReservation->status = true;
 
+            $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+
 
             $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time);
 
@@ -140,7 +164,6 @@ class ReservationController extends BaseRestfulJsonController {
 
 
             try {
-                $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
                 $id = $reservationTable->update($newReservation);
                 if ($id == false) {
                     throw new \Api\Exception\ApiException("Reservation can not be done, there another reservation at the same time", 500);

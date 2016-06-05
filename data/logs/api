@@ -1,4 +1,4 @@
-2016-06-04T21:37:05-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:49
+2016-06-04T23:04:48-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:49
 Stack trace:
 #0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
 #1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
@@ -14,7 +14,7 @@ Stack trace:
 #11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
 #12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
 #13 {main}
-2016-06-04T21:38:41-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:49
+2016-06-04T23:04:49-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:49
 Stack trace:
 #0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
 #1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
@@ -30,4 +30,371 @@ Stack trace:
 #11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
 #12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
 #13 {main}
-2016-06-04T21:55:01-07:00 ERR (3): Call to undefined function Api\Controller\isReservationConflict() {"file":"/var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php","line":81}
+2016-06-04T23:06:27-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:49
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:10:59-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:11:26-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:11:27-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:12:27-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:51
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:12:29-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:51
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:13:50-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:13:52-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:14:10-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:14:12-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:14:16-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:16:56-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:17:48-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:18:06-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'SQL Error' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:53
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:18:22-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:18:57-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:18:58-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:18:59-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:19:00-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:19:01-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:19:36-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:19:50-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}
+2016-06-04T23:20:11-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+Stack trace:
+#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
+#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
+#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
+#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
+#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
+#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
+#13 {main}

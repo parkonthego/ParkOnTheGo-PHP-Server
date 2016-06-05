@@ -49,7 +49,10 @@ class ReservationTable extends BaseModelTable {
 
     public function fetchRecord($requestId) {
         try {
-            $rowset = $this->tableGateway->select(array('id' => $requestId, 'status' => true));
+
+            $filter = new \Zend\Db\Sql\Predicate\Predicate();
+            $filter->greaterThanOrEqualTo("end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("id", $requestId)->and->equalTo("status", true);
+            $rowset = $this->tableGateway->select($filter);
             $artistRow = $rowset->current();
             return $artistRow;
         } catch (\Exception $e) {
@@ -59,25 +62,67 @@ class ReservationTable extends BaseModelTable {
     }
 
     public function fetchUserServations($id) {
-        $select = new \Zend\Db\Sql\Select;
+        try {
+            $select = new \Zend\Db\Sql\Select;
 
-        $select->from(array('r' => 'reservation'))
-                ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
-                ->where(array('r.user_id' => $id, 'r.status' => true))
-                ->columns(array('*'));
-        
-        
-        $statement = $this->getSql()->prepareStatementForSqlObject($select);
+            $filter = new \Zend\Db\Sql\Predicate\Predicate();
+            $filter->greaterThanOrEqualTo("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
 
-        $data = $statement->execute();
-        $result = array();
-        foreach ($data as $projectRow) {
-            $result[] = $projectRow;
+            $select->from(array('r' => 'reservation'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
+                    ->where($filter)
+                    ->columns(array('*'));
+ 
+            $statement = $this->getSql()->prepareStatementForSqlObject($select);
+
+            $data = $statement->execute();
+            $result = array();
+            foreach ($data as $projectRow) {
+                $result[] = $projectRow;
+            }
+
+            if ($result) {
+                return $result;
+            } else {
+                return -1;
+            }
+        } catch (\Exception $e) {
+            $this->logger->err($e->getMessage());
+            return false;
         }
+    }
 
-        if ($result) {
+    public function fetchUserPastServations($id) {
+        try {
+            $select = new \Zend\Db\Sql\Select;
 
-            return $result;
+            $filter = new \Zend\Db\Sql\Predicate\Predicate();
+            $filter->lessThan("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
+
+            $select->from(array('r' => 'reservation'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
+                    ->where($filter)
+                    ->columns(array('*'));
+
+
+           
+            $statement = $this->getSql()->prepareStatementForSqlObject($select);
+
+            $data = $statement->execute();
+            $result = array();
+            foreach ($data as $projectRow) {
+                $result[] = $projectRow;
+            }
+
+            if ($result) {
+
+                return $result;
+            } else {
+                return -1;
+            }
+        } catch (\Exception $e) {
+            $this->logger->err($e->getMessage());
+            return false;
         }
     }
 
@@ -89,14 +134,14 @@ class ReservationTable extends BaseModelTable {
             if (!$this->isValid($reservation)) {
                 return false;
             }
-           
+
 
             $data = array_filter($reservation->getArrayCopy());
-            
-            if($reservation->status == false){
+
+            if ($reservation->status == false) {
                 $data['status'] = false;
             }
-            
+
             $this->tableGateway->update($data, array('id' => $reservation->id));
 
             return true;
@@ -105,9 +150,9 @@ class ReservationTable extends BaseModelTable {
             return false;
         }
     }
-    
-    public function isReservationConflict($startTime,$endTime){
-        
+
+    public function isReservationConflict($startTime, $endTime) {
+
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThan("r.end_time", $endTime);
 
@@ -115,8 +160,8 @@ class ReservationTable extends BaseModelTable {
         $subSelect->from(array('r' => 'reservation'))
                 ->columns(array('id'))
                 ->where($subFilter);
-        
-        
+
+
         //print_r($subSelect->getSqlString());
         $statement = $this->getSql()->prepareStatementForSqlObject($subSelect);
         $resultSet = $statement->execute();
@@ -125,12 +170,11 @@ class ReservationTable extends BaseModelTable {
         foreach ($resultSet as $projectRow) {
             $result[] = $projectRow;
         }
-    
+
         if ($result) {
 
             return $result;
         }
-        
     }
 
 }
