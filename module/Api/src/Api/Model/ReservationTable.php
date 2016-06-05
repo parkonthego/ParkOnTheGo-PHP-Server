@@ -69,15 +69,21 @@ class ReservationTable extends BaseModelTable {
             $filter->greaterThanOrEqualTo("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
 
             $select->from(array('r' => 'reservation'))
-                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude','longitude','description','price'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude', 'longitude', 'description', 'price'))
                     ->where($filter)
                     ->columns(array('*'));
- 
+
             $statement = $this->getSql()->prepareStatementForSqlObject($select);
 
             $data = $statement->execute();
             $result = array();
             foreach ($data as $projectRow) {
+
+                $timestamp = strtotime($projectRow['end_time']);
+                $projectRow['end_time'] = date('m/d/Y H:i', $timestamp);
+                $timestamp = strtotime($projectRow['starting_time']);
+                $projectRow['starting_time'] = date('m/d/Y H:i', $timestamp);
+
                 $result[] = $projectRow;
             }
 
@@ -100,17 +106,22 @@ class ReservationTable extends BaseModelTable {
             $filter->lessThan("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
 
             $select->from(array('r' => 'reservation'))
-                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude','longitude','description','price'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude', 'longitude', 'description', 'price'))
                     ->where($filter)
                     ->columns(array('*'));
 
 
-           
+
             $statement = $this->getSql()->prepareStatementForSqlObject($select);
 
             $data = $statement->execute();
             $result = array();
             foreach ($data as $projectRow) {
+                $timestamp = strtotime($projectRow['end_time']);
+                $projectRow['end_time'] = date('m/d/Y H:i', $timestamp);
+                $timestamp = strtotime($projectRow['starting_time']);
+                $projectRow['starting_time'] = date('m/d/Y H:i', $timestamp);
+
                 $result[] = $projectRow;
             }
 
@@ -154,11 +165,11 @@ class ReservationTable extends BaseModelTable {
     public function isReservationConflict($startTime, $endTime, $parkingId) {
 
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
-        $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThan("r.end_time", $endTime)->and->equalTo('r.parking_id', $parkingId);
+        $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThanOrEqualTo("r.end_time", $endTime)->and->equalTo('r.parking_id', $parkingId);
 
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))
-                ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id',array())
+                ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array())
                 ->columns(array('id'))
                 ->where($subFilter);
 
