@@ -69,7 +69,7 @@ class ReservationTable extends BaseModelTable {
             $filter->greaterThanOrEqualTo("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
 
             $select->from(array('r' => 'reservation'))
-                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude','longitude','description','price'))
                     ->where($filter)
                     ->columns(array('*'));
  
@@ -100,7 +100,7 @@ class ReservationTable extends BaseModelTable {
             $filter->lessThan("r.end_time", new \Zend\Db\Sql\Expression("NOW()"))->and->equalTo("r.user_id", $id)->and->equalTo("r.status", true);
 
             $select->from(array('r' => 'reservation'))
-                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('*'))
+                    ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array('latitude','longitude','description','price'))
                     ->where($filter)
                     ->columns(array('*'));
 
