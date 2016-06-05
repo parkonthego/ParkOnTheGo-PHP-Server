@@ -57,7 +57,7 @@ class ParkingSlotTable extends BaseModelTable {
     public function fetchRecord($requestId) {
 
         $filter = new \Zend\Db\Sql\Predicate\Predicate();
-        $filter->lessThanOrEqualTo("starting_time", new \Zend\Db\Sql\Expression('NOW()'))->and->greaterThanOrEqualTo("end_time", new \Zend\Db\Sql\Expression('NOW()'))->and->equalTo("parking_id", $requestId);
+        $filter->lessThanOrEqualTo("starting_time", new \Zend\Db\Sql\Expression('NOW()'))->and->greaterThan("end_time", new \Zend\Db\Sql\Expression('NOW()'))->and->equalTo("parking_id", $requestId);
         $statusSelect = new \Zend\Db\Sql\Select();
         $statusSelect->from(array('r' => 'reservation'))
                 ->columns(array("number" => new \Zend\Db\Sql\Expression("Count(*)")))
@@ -101,7 +101,7 @@ class ParkingSlotTable extends BaseModelTable {
 
       
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
-        $subFilter->lessThanOrEqualTo("r.starting_time", $statingTime)->and->greaterThanOrEqualTo("r.end_time", $endTime);
+        $subFilter->lessThanOrEqualTo("r.starting_time", $statingTime)->and->greaterThan("r.end_time", $endTime);
 
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))

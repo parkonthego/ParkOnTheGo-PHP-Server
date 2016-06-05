@@ -75,11 +75,20 @@ class ReservationController extends BaseRestfulJsonController {
             $newReservation->user_id = $userId;
             $newReservation->starting_time = $this->convertStringToDateTime($startingTime);
             $newReservation->end_time = $this->convertStringToDateTime($endTime);
-            $newReservation->cost = $cost; 
-           
+            $newReservation->cost = $cost;
+            $newReservation->status = true;
+
+            $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+
+            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time);
+
+            if ($result != NULL) {
+                return $this->error("Reservation has conflict with other reservation");
+            }
+
 
             try {
-                $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+
                 $id = $reservationTable->insert($newReservation);
                 if ($id == false) {
                     throw new \Api\Exception\ApiException("Reservation is already exists", 500);
@@ -99,6 +108,89 @@ class ReservationController extends BaseRestfulJsonController {
         }
 
         $this->methodNotAllowed();
+    }
+
+    public function editAction() {
+        $request = $this->getRequest();
+        if ($request->isPost()) {
+
+
+            $reservationId = $this->getRequest()->getPost('reservationid');
+            $parkingId = $this->getRequest()->getPost('parkingid');
+            $userId = $this->getRequest()->getPost('userid');
+            $startingTime = $this->getRequest()->getPost('startingtime');
+            $endTime = $this->getRequest()->getPost('endtime');
+            $cost = $this->getRequest()->getPost('cost');
+
+            $newReservation = new \Api\Model\Reservation();
+            $newReservation->id = $reservationId;
+            $newReservation->parking_id = $parkingId;
+            $newReservation->user_id = $userId;
+            $newReservation->starting_time = $this->convertStringToDateTime($startingTime);
+            $newReservation->end_time = $this->convertStringToDateTime($endTime);
+            $newReservation->cost = $cost;
+            $newReservation->status = true;
+
+
+            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time);
+
+            if ($result != NULL) {
+                return $this->error("Reservation has conflict with other reservation");
+            }
+
+
+            try {
+                $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+                $id = $reservationTable->update($newReservation);
+                if ($id == false) {
+                    throw new \Api\Exception\ApiException("Reservation can not be done, there another reservation at the same time", 500);
+                };
+                if ($id == NULL) {
+                    throw new \Api\Exception\ApiException("No data exist", 404);
+                };
+                if ($id == false) {
+                    return $this->error("Reservation can not be done, there another reservation at the same time");
+                } else {
+
+                    return $this->success();
+                }
+            } catch (\Exception $e) {
+                $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
+                return $this->error($e->getMessage());
+            }
+        }
+
+        $this->methodNotAllowed();
+    }
+
+    public function delete($id) {
+
+
+
+        $reservationId = $id;
+        $newReservation = new \Api\Model\Reservation();
+        $newReservation->id = $reservationId;
+        $newReservation->status = false;
+
+        try {
+            $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
+            $id = $reservationTable->deleteReservation($newReservation);
+            if ($id == false) {
+                throw new \Api\Exception\ApiException("Reservation can not be deleted", 500);
+            };
+            if ($id == NULL) {
+                throw new \Api\Exception\ApiException("No data exist", 404);
+            };
+            if ($id == false) {
+                return $this->error("eservation can not be deleted");
+            } else {
+
+                return $this->success();
+            }
+        } catch (\Exception $e) {
+            $this->logger->ERR($e->getMessage() . "\n" . $e->getTraceAsString());
+            return $this->error($e->getMessage());
+        }
     }
 
 }

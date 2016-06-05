@@ -18,6 +18,7 @@ class Reservation extends BaseModel {
     public $starting_time;
     public $end_time;
     public $cost;
+    public $status;
     public $created_at;
     public $updated_at;
 
