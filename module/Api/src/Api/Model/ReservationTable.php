@@ -151,13 +151,14 @@ class ReservationTable extends BaseModelTable {
         }
     }
 
-    public function isReservationConflict($startTime, $endTime) {
+    public function isReservationConflict($startTime, $endTime, $parkingId) {
 
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
-        $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThan("r.end_time", $endTime);
+        $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThan("r.end_time", $endTime)->and->equalTo('r.parking_id', $parkingId);
 
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))
+                ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id',array())
                 ->columns(array('id'))
                 ->where($subFilter);
 
