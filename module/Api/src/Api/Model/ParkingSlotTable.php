@@ -91,7 +91,7 @@ class ParkingSlotTable extends BaseModelTable {
 
         if ($result) {
 
-            return $result;
+            return $result[0];
         }
     }
 
