@@ -165,8 +165,34 @@ class ReservationTable extends BaseModelTable {
     public function isReservationConflict($startTime, $endTime, $parkingId) {
 
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
-        $subFilter->lessThanOrEqualTo("r.starting_time", $startTime)->and->greaterThanOrEqualTo("r.end_time", $endTime)->and->equalTo('r.parking_id', $parkingId);
-
+        $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
+        $subFilter->nest()
+                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->unnest()
+                ->or
+                ->nest()
+                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->unnest()
+                ->or
+                ->nest()
+                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->lessThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->unnest()
+                 ->or
+                ->nest()
+                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->lessThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->unnest();
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))
                 ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array())

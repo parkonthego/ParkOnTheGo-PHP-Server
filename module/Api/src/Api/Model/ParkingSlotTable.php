@@ -99,14 +99,44 @@ class ParkingSlotTable extends BaseModelTable {
 
 
 
-      
+
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
-        $subFilter->lessThanOrEqualTo("r.starting_time", $statingTime)->and->greaterThan("r.end_time", $endTime)->and->equalTo("status", true);
+        $subFilter->nest()
+                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)
+                ->unnest()
+                ->or
+                ->nest()
+                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)
+                ->unnest()
+                ->or
+                ->nest()
+                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->lessThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)
+                ->unnest()
+                 ->or
+                ->nest()
+                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->and
+                ->lessThanOrEqualTo("r.end_time", $endTime)
+                ->and->equalTo("status", true)
+                ->unnest();
+
 
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))
                 ->columns(array('parking_id'))
                 ->where($subFilter);
+
+      
+
 
         $filter = new \Zend\Db\Sql\Predicate\Predicate();
         $filter->lessThanOrEqualTo('distance', $radius);
@@ -120,10 +150,10 @@ class ParkingSlotTable extends BaseModelTable {
                 ->where($whereFilter)
                 ->having($filter)
                 ->order(array('distance' => 'ASC'))
-                ->limit(20)
+                ->limit(40)
                 ->offset(0);
 
-      
+
 
         $statement = $this->getSql()->prepareStatementForSqlObject($select);
         $resultSet = $statement->execute();
@@ -132,7 +162,7 @@ class ParkingSlotTable extends BaseModelTable {
         foreach ($resultSet as $projectRow) {
             $result[] = $projectRow;
         }
-    
+
         if ($result) {
 
             return $result;
