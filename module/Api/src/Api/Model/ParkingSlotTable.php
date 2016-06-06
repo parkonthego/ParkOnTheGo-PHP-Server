@@ -134,7 +134,6 @@ class ParkingSlotTable extends BaseModelTable {
                 ->where($subFilter);
 
 
-        print_r($subSelect->getSqlString());
         $filter = new \Zend\Db\Sql\Predicate\Predicate();
         $filter->lessThanOrEqualTo('distance', $radius);
         $whereFilter = new \Zend\Db\Sql\Predicate\Predicate();
