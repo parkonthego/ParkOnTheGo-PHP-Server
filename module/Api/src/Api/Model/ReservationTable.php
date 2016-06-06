@@ -167,28 +167,28 @@ class ReservationTable extends BaseModelTable {
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter->nest()
-                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->lessThanOrEqualTo("r.starting_time", $startTime)
                 ->and
                 ->greaterThanOrEqualTo("r.end_time", $endTime)
                 ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
                 ->unnest()
                 ->or
                 ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->greaterThanOrEqualTo("r.starting_time", $startTime)
                 ->and
                 ->greaterThanOrEqualTo("r.end_time", $endTime)
                 ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
                 ->unnest()
                 ->or
                 ->nest()
-                ->lessThanOrEqualTo("r.starting_time", $statingTime)
+                ->lessThanOrEqualTo("r.starting_time", $startTime)
                 ->and
                 ->lessThanOrEqualTo("r.end_time", $endTime)
                 ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
                 ->unnest()
                  ->or
                 ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
+                ->greaterThanOrEqualTo("r.starting_time", $startTime)
                 ->and
                 ->lessThanOrEqualTo("r.end_time", $endTime)
                 ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
