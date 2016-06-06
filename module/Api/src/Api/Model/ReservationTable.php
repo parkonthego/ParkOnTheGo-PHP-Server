@@ -170,14 +170,14 @@ class ReservationTable extends BaseModelTable {
                 ->nest()
                 ->greaterThanOrEqualTo('r.starting_time', $startTime)
                 ->and
-                ->lessThan('r.starting_time', $endTime)
+                ->lessThanOrEqualTo('r.starting_time', $endTime)
                 ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
                 ->or
                 ->nest()
                 ->greaterThanOrEqualTo('r.end_time', $startTime)
                 ->and
-                ->lessThan('r.end_time', $endTime)
+                ->lessThanOrEqualTo('r.end_time', $endTime)
                 ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
                 ->or
