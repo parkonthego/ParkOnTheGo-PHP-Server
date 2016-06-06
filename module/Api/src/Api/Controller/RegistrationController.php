@@ -100,11 +100,11 @@ class RegistrationController extends BaseRestfulJsonController {
                 $userTable = $this->serviceLocator->get('Api\Model\UserTable');
                 $profile = $userTable->fetchUserById($id);
                 if ($profile == false) {
-                    throw new Exception("Update Failed");
+                    return $this->error("Update Failed");
                 };
 
-                if ($id == NULL) {
-                    throw new \Api\Exception\ApiException("No data exist", 404);
+                if ($profile == NULL) {
+                       throw new \Api\Exception\ApiException("No data exist", 404);
                 };
 
                 return $this->success($profile);
