@@ -162,7 +162,7 @@ class ReservationTable extends BaseModelTable {
         }
     }
 
-    public function isReservationConflict($startTime, $endTime, $parkingId) {
+    public function isReservationConflict($startTime, $endTime, $parkingId, $id) {
 
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
@@ -171,28 +171,28 @@ class ReservationTable extends BaseModelTable {
                 ->greaterThanOrEqualTo('r.starting_time', $startTime)
                 ->and
                 ->lessThanOrEqualTo('r.starting_time', $endTime)
-                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)->and->notEqualTo('r.id', $id)
                 ->unnest()
                 ->or
                 ->nest()
                 ->greaterThanOrEqualTo('r.end_time', $startTime)
                 ->and
                 ->lessThanOrEqualTo('r.end_time', $endTime)
-                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)->and->notEqualTo('r.id', $id)
                 ->unnest()
                 ->or
                 ->nest()
                 ->greaterThanOrEqualTo('r.starting_time', $startTime)
                 ->AND
                 ->lessThanOrEqualTo('r.end_time', $endTime)
-                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)->and->notEqualTo('r.id', $id)
                 ->unnest()
                 ->or
                 ->nest()
                 ->lessThanOrEqualTo('r.starting_time', $startTime)
                 ->AND
                 ->greaterThanOrEqualTo('r.end_time', $endTime)
-                ->and->equalTo("status", true)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)->and->notEqualTo('r.id', $id)
                 ->unnest()
                 ->unnest();
 

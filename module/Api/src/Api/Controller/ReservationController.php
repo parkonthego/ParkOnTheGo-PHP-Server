@@ -101,7 +101,7 @@ class ReservationController extends BaseRestfulJsonController {
             $newReservation->status = true;
 
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
-            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time,$newReservation->parking_id);
+            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time,$newReservation->parking_id, -1);
 
             if ($result != NULL) {
                 return $this->error("Reservation has conflict with other reservation");
@@ -154,7 +154,7 @@ class ReservationController extends BaseRestfulJsonController {
             $reservationTable = $this->serviceLocator->get('Api\Model\ReservationTable');
 
 
-            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time,$newReservation->parking_id);
+            $result = $reservationTable->isReservationConflict($newReservation->starting_time, $newReservation->end_time,$newReservation->parking_id,  $newReservation->id);
 
             if ($result != NULL) {
                 return $this->error("Reservation has conflict with other reservation");
