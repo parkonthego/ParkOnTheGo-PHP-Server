@@ -102,32 +102,26 @@ class ParkingSlotTable extends BaseModelTable {
 
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter->nest()
-                ->lessThanOrEqualTo("r.starting_time", $statingTime)
-                ->and
-                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->nest()
+                ->between('r.starting_time', $statingTime, $endTime)
                 ->and->equalTo("status", true)
                 ->unnest()
                 ->or
                 ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
-                ->and
-                ->greaterThanOrEqualTo("r.end_time", $endTime)
+                ->between('r.end_time', $statingTime, $endTime)
                 ->and->equalTo("status", true)
                 ->unnest()
                 ->or
                 ->nest()
-                ->lessThanOrEqualTo("r.starting_time", $statingTime)
-                ->and
-                ->lessThanOrEqualTo("r.end_time", $endTime)
+                ->greaterThanOrEqualTo('r.starting_time', $statingTime)
+                ->AND
+                ->lessThanOrEqualTo('r.end_time', $endTime)
                 ->and->equalTo("status", true)
                 ->unnest()
-                 ->or
-                ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $statingTime)
-                ->and
-                ->lessThanOrEqualTo("r.end_time", $endTime)
-                ->and->equalTo("status", true)
                 ->unnest();
+
+
+
 
 
         $subSelect = new \Zend\Db\Sql\Select;
@@ -135,9 +129,8 @@ class ParkingSlotTable extends BaseModelTable {
                 ->columns(array('parking_id'))
                 ->where($subFilter);
 
+
       
-
-
         $filter = new \Zend\Db\Sql\Predicate\Predicate();
         $filter->lessThanOrEqualTo('distance', $radius);
         $whereFilter = new \Zend\Db\Sql\Predicate\Predicate();

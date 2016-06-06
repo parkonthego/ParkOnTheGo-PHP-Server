@@ -167,32 +167,24 @@ class ReservationTable extends BaseModelTable {
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter = new \Zend\Db\Sql\Predicate\Predicate();
         $subFilter->nest()
-                ->lessThanOrEqualTo("r.starting_time", $startTime)
-                ->and
-                ->greaterThanOrEqualTo("r.end_time", $endTime)
-                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->nest()
+                ->between('r.starting_time', $startTime, $endTime)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
                 ->or
                 ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $startTime)
-                ->and
-                ->greaterThanOrEqualTo("r.end_time", $endTime)
-                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->between('r.end_time', $startTime, $endTime)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
                 ->or
                 ->nest()
-                ->lessThanOrEqualTo("r.starting_time", $startTime)
-                ->and
-                ->lessThanOrEqualTo("r.end_time", $endTime)
-                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
+                ->greaterThanOrEqualTo('r.starting_time', $startTime)
+                ->AND
+                ->lessThanOrEqualTo('r.end_time', $endTime)
+                ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
-                 ->or
-                ->nest()
-                ->greaterThanOrEqualTo("r.starting_time", $startTime)
-                ->and
-                ->lessThanOrEqualTo("r.end_time", $endTime)
-                ->and->equalTo("status", true)->and->equalTo('parking_id', $parkingId)
                 ->unnest();
+        
         $subSelect = new \Zend\Db\Sql\Select;
         $subSelect->from(array('r' => 'reservation'))
                 ->join(array('p' => 'parking_slot'), 'r.parking_id = p.id', array())
