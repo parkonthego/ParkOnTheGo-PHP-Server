@@ -187,6 +187,13 @@ class ReservationTable extends BaseModelTable {
                 ->lessThanOrEqualTo('r.end_time', $endTime)
                 ->and->equalTo("status", true)->and->equalTo('r.parking_id', $parkingId)
                 ->unnest()
+                ->or
+                ->nest()
+                ->lessThanOrEqualTo('r.starting_time', $startTime)
+                ->AND
+                ->greaterThanOrEqualTo('r.end_time', $endTime)
+                ->and->equalTo("status", true)
+                ->unnest()
                 ->unnest();
 
         $subSelect = new \Zend\Db\Sql\Select;

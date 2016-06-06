@@ -129,6 +129,13 @@ class ParkingSlotTable extends BaseModelTable {
                     ->lessThanOrEqualTo('r.end_time', $endTime)
                     ->and->equalTo("status", true)
                     ->unnest()
+                    ->or
+                    ->nest()
+                    ->lessThanOrEqualTo('r.starting_time', $statingTime)
+                    ->AND
+                    ->greaterThanOrEqualTo('r.end_time', $endTime)
+                    ->and->equalTo("status", true)
+                    ->unnest()
                     ->unnest();
 
 
@@ -139,7 +146,7 @@ class ParkingSlotTable extends BaseModelTable {
             $subSelect->from(array('r' => 'reservation'))
                     ->columns(array('parking_id' => new \Zend\Db\Sql\Expression("distinct parking_id")))
                     ->where($subFilter);
-             $this->logger->info($$subSelect->getSqlString());
+          
             $filter = new \Zend\Db\Sql\Predicate\Predicate();
             $filter->lessThanOrEqualTo('distance', $radius);
             $whereFilter = new \Zend\Db\Sql\Predicate\Predicate();
