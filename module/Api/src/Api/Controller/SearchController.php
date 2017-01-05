@@ -2,9 +2,13 @@
 
 namespace Api\Controller;
 
+use Swagger\Annotations as SWG;
 use Zend\View\Model\JsonModel;
 use Zend\Db\Sql\Expression;
 
+/**
+ * @SWG\Info(title="My First API", version="0.1")
+ */
 class SearchController extends BaseRestfulJsonController {
 
     function __construct(\Zend\ServiceManager\ServiceLocatorInterface $serviceLocator) {
@@ -12,6 +16,12 @@ class SearchController extends BaseRestfulJsonController {
     }
 
     //Override
+    /**
+     * @SWG\Get(
+     *     path="/api/resource.json",
+     *     @SWG\Response(response="200", description="An example resource")
+     * )
+     */
     public function get($id) {
         try {
             if (!$id) {

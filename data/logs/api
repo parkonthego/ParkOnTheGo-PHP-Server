@@ -1,32 +1,13 @@
-2016-06-04T23:16:56-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
+2017-01-03T19:53:08-08:00 ERR (3): Zend\View\Exception\UnexpectedValueException: Zend\View\Renderer\PhpRenderer::render: Unable to render template "/var/www/html/work/ParkOnTheGo-PHP-Server/module/Api/config/../view/application/index/index.phtml"; file include failed in /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-view/src/Renderer/PhpRenderer.php:509
 Stack trace:
-#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
-#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
-#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
-#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
-#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
-#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
-#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
-#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
-#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
-#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
-#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
-#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
-#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
-#13 {main}
-2016-06-04T23:17:48-07:00 ERR (3): exception 'Api\Exception\ApiException' with message 'No data exist' in /var/www/html/work/phpserver/module/Api/src/Api/Controller/ReservationController.php:50
-Stack trace:
-#0 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(333): Api\Controller\ReservationController->getUserReservationsAction()
-#1 /var/www/html/work/phpserver/module/Api/src/Api/Controller/BaseRestfulJsonController.php(33): Zend\Mvc\Controller\AbstractRestfulController->onDispatch(Object(Zend\Mvc\MvcEvent))
-#2 [internal function]: Api\Controller\BaseRestfulJsonController->onDispatch(Object(Zend\Mvc\MvcEvent))
-#3 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
-#4 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
-#5 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractController.php(118): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
-#6 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Controller/AbstractRestfulController.php(300): Zend\Mvc\Controller\AbstractController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
-#7 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/DispatchListener.php(114): Zend\Mvc\Controller\AbstractRestfulController->dispatch(Object(Zend\Http\PhpEnvironment\Request), Object(Zend\Http\PhpEnvironment\Response))
-#8 [internal function]: Zend\Mvc\DispatchListener->onDispatch(Object(Zend\Mvc\MvcEvent))
-#9 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
-#10 /var/www/html/work/phpserver/vendor/zendframework/zend-eventmanager/src/EventManager.php(263): Zend\EventManager\EventManager->triggerListeners('dispatch', Object(Zend\Mvc\MvcEvent), Object(Closure))
-#11 /var/www/html/work/phpserver/vendor/zendframework/zend-mvc/src/Application.php(340): Zend\EventManager\EventManager->triggerEventUntil(Object(Closure), Object(Zend\Mvc\MvcEvent))
-#12 /var/www/html/work/phpserver/public/index.php(21): Zend\Mvc\Application->run()
-#13 {main}
+#0 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-view/src/View.php(207): Zend\View\Renderer\PhpRenderer->render()
+#1 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-view/src/View.php(236): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#2 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-view/src/View.php(200): Zend\View\View->renderChildren(Object(Zend\View\Model\ViewModel))
+#3 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-mvc/src/View/Http/DefaultRenderingStrategy.php(103): Zend\View\View->render(Object(Zend\View\Model\ViewModel))
+#4 [internal function]: Zend\Mvc\View\Http\DefaultRenderingStrategy->render(Object(Zend\Mvc\MvcEvent))
+#5 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-eventmanager/src/EventManager.php(490): call_user_func(Array, Object(Zend\Mvc\MvcEvent))
+#6 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-eventmanager/src/EventManager.php(251): Zend\EventManager\EventManager->triggerListeners('render', Object(Zend\Mvc\MvcEvent))
+#7 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-mvc/src/Application.php(384): Zend\EventManager\EventManager->triggerEvent(Object(Zend\Mvc\MvcEvent))
+#8 /var/www/html/work/ParkOnTheGo-PHP-Server/vendor/zendframework/zend-mvc/src/Application.php(356): Zend\Mvc\Application->completeRequest(Object(Zend\Mvc\MvcEvent))
+#9 /var/www/html/work/ParkOnTheGo-PHP-Server/public/index.php(21): Zend\Mvc\Application->run()
+#10 {main}
